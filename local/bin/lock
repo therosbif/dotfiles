@@ -1,0 +1,10 @@
+#!/bin/env sh
+
+revert() {
+  rm /tmp/*screen*.png
+}
+scrot /tmp/locking_screen.png
+convert -blur 0x8 /tmp/locking_screen.png /tmp/screen_blur.png
+convert -composite /tmp/screen_blur.png ~/Pictures/Wallpaper/dickbutt.png /tmp/screen.png
+i3lock -i /tmp/screen.png --composite -k --insidevercolor=EAD49BFF --ringvercolor=EAD49BCF --ringcolor=FFFFFF5F --keyhlcolor=FFFFFFFF --timecolor=FFFFFADF --datecolor=FFFFFADF --wrongcolor=000000FF --wrongtext="NOPE!" --insidewrongcolor=FF000030 -e -f
+revert

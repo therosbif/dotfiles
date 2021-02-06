@@ -1,0 +1,5 @@
+#!/bin/sh
+
+notify-send "🌧️Loading Radar... " "Please wait..."
+
+mpv --loop-file=5 "https://www.meteo60.fr/radars/animation-radar-france.gif"

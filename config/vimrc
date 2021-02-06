@@ -1,0 +1,104 @@
+set nu
+set nocompatible
+set path+=**
+set wildmenu
+set tags=./tags,tags;$HOME
+set relativenumber
+set mouse=a
+set wildmode=longest,list,full
+set termguicolors
+set background=dark
+set wrap
+
+highlight ColorColumn ctermbg=red
+set colorcolumn=81
+
+" Splits
+    set splitbelow splitright
+    map <C-h> <C-w>h
+	map <C-j> <C-w>j
+	map <C-k> <C-w>k
+	map <C-l> <C-w>l
+
+packadd termdebug
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+    Plug 'sainnhe/edge'
+    Plug 'https://github.com/ycm-core/YouCompleteMe'
+    Plug 'ap/vim-css-color'
+    Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+    Plug 'https://github.com/tpope/vim-surround.git'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all') }
+call plug#end()
+
+let g:completor_auto_trigger = 0
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_global_ycm_extra_conf = "$HOME/.vim/plugged/YCM-Generator/config_gen.py"
+let g:ycm_confirm_extra_conf = 0
+inoremap <expr> <Tab> pumvisible() ? "<C-N>" : "<C-R>=completor#do('complete')<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+
+"   COLORS
+
+let g:edge_style = 'neon'
+let g:airline_theme='minimalist'
+let g:completor_clang_binary = '/usr/bin/clang'
+let g:completor_python_binary = '/usr/bin/python'
+let g:airline_powerline_fonts = 1
+let g:edge_transparent_background = 1
+let g:edge_disable_italic_comment = 1
+
+colorscheme edge
+
+hi clear CursorLine
+augroup CLClear
+    autocmd! ColorScheme * hi clear CursorLine
+augroup END
+
+hi CursorLineNR cterm=bold ctermfg=red
+augroup CLNRSet
+    autocmd! ColorScheme * hi CursorLineNR cterm=bold ctermfg=red
+augroup END
+
+command! MakeTags !ctags --fields=+l -R . 
+
+" SNIPPETS
+    inoremap {<CR> {<CR>}<Esc>O
+    inoremap " ""<Left>
+    inoremap ( ()<Left>
+    inoremap [ []<Left>
+    inoremap ;pf printf("");<Esc>F"i
+    inoremap #! #!/bin/bash<CR><CR>
+    inoremap ;main <Esc>:-1read $HOME/.vim/.skeleton.main<CR>2j$a
+    nnoremap ;header gg:-1read $HOME/.vim/.skeleton.header<CR>7ja
+    nnoremap ;tags :MakeTags<CR><CR>:YcmGenerateConfig<CR>
+    nnoremap c "_c
+    nnoremap zz :wq<CR>
+    nnoremap éé :w<CR>
+
+" replace all mapped to S
+    nnoremap S :%s//g<Left><Left>
+
+" Save file as sudo on files that require root permission
+	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+syntax on
+filetype plugin on
+
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab

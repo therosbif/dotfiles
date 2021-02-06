@@ -1,0 +1,18 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.52
+    cursor_color = "#aaaaaa"
+    font = DejaVu Sans Mono 10
+    show_titlebar = False
+    scrollbar_position = disabled
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

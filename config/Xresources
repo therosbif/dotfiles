@@ -1,0 +1,37 @@
+! ^ The above lines are no comments!
+! Leave them as they are if a file ~/.extend.Xresources is being used on your system.
+! config can be added there or also here below.
+! For comments use "!"
+
+!dmenu.background: #EAD49B
+!dmenu.foreground: #1E272B
+!dmenu.selforeground: #EAD49B
+!dmenu.selbackground: #1E272B
+
+*.alpha: 0.9
+
+*.foreground: #EAD49B
+*.background: #1E272B
+*.cursor: #EAD49B
+*.color0: #1E272B
+*.color1: #685742
+*.color2: #9D6A47
+*.color3: #B36D43
+*.color4: #EAD49B
+*.color5: #D99F57
+*.color6: #C9A554
+*.color7: #1E272B
+*.color8: #666666
+*.color9: #685742
+*.color10: #9D6A47
+*.color11: #B36D43
+*.color12: #1E272B
+*.color13: #D99F57
+*.color14: #C9A554
+*.color15: #1E272B
+
+dmenu.font: xft:Menlo:size=10:antialias=true
+
+Xcursor.theme: Maia-Cursor
+Xcursor.size:  0
+

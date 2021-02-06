@@ -4,9 +4,9 @@ rosbif's GNU/Linux configuration
 
 ---
 
-![Screenshot1](Screenshots/Screenshot1)
-![Screenshot2](Screenshots/Screenshot2)
-![Screenshot3](Screenshots/Screenshot3)
+![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot1.png)
+![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot2.png)
+![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot3.png)
 
 ## About
 

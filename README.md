@@ -4,6 +4,10 @@ rosbif's GNU/Linux configuration
 
 ---
 
+![Screenshot1](Screenshots/Screenshot1)
+![Screenshot2](Screenshots/Screenshot2)
+![Screenshot3](Screenshots/Screenshot3)
+
 ## About
 
 - [Fedora Everything 33](https://alt.fedoraproject.org/en/)

@@ -10,8 +10,7 @@ rosbif's GNU/Linux configuration
 - [i3wm](https://i3wm.org/)
 - [polybar](https://github.com/polybar/polybar)
 - [Wallpaper](https://www.wallpaperup.com/196200/nature_mountain_eagle_fog_landscape_ultrahd_4k_wallpaper.html)
-- [rofi-theme](https://github.com/h-valdes/dotfiles) by h-valdes
-- Dell XPS15 9500
+- [rofi theme](https://github.com/h-valdes/dotfiles) by h-valdes
 
 ## Custom Polybar Modules
 

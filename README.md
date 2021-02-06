@@ -4,10 +4,6 @@ rosbif's GNU/Linux configuration
 
 ---
 
-![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot1.png)
-![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot2.png)
-![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot3.png)
-
 ## About
 
 - [Fedora Everything 33](https://alt.fedoraproject.org/en/)
@@ -15,6 +11,10 @@ rosbif's GNU/Linux configuration
 - [polybar](https://github.com/polybar/polybar)
 - [Wallpaper](https://www.wallpaperup.com/196200/nature_mountain_eagle_fog_landscape_ultrahd_4k_wallpaper.html)
 - [rofi theme](https://github.com/h-valdes/dotfiles) by h-valdes
+
+![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot1.png)
+![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot2.png)
+![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot3.png)
 
 ## Custom Polybar Modules
 

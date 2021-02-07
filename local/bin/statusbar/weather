@@ -6,19 +6,26 @@
 # If we have internet, get a weather report from wttr.in and store it locally.
 # You could set up a shell alias to view the full file in a pager in the
 # terminal if desired. This function will only be run once a day when needed.
+
+for line in $(whereami -r)
+do
+    [[ $line =~ "city" ]] && location="$(whereami -r | sed -n '8p' | cut -d '"' -f4)" 
+done
+
 weatherreport="${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
-getforecast() { curl -sf "wttr.in/$LOCATION" > "$weatherreport" || exit 1 ;}
+getforecast() { curl -sf "wttr.in/$location" > "$weatherreport" || exit 1 ;}
 
 # Some very particular and terse stream manipulation. We get the maximum
 # precipication chance and the daily high and low from the downloaded file and
 # display them with coresponding emojis.
-showweather() { printf "$LOCATION %s" "$(sed '16q;d' "$weatherreport" |
+showweather() { printf "$location %s" "$(sed '16q;d' "$weatherreport" |
 	grep -wo "[0-9]*%" | sort -rn | sed "s/^/  /g;1q" | tr -d '\n')"
-sed '13q;d' "$weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "  " $1 "°C -",$2 "°C"}' ;}
+sed '13q;d' "$weatherreport" | grep -o "m\\(-\\)*[0-9]\\+" | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print "   " $1 "°C ",$2 "°C"}' ;}
 
 # The test if our forcecast is updated to the day. If it isn't download a new
 # weather report from wttr.in with the above function.
 [ "$(stat -c %y "$weatherreport" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] ||
 	getforecast
+[ $1 ] && getforecast
 
 showweather

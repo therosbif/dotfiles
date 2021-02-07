@@ -60,7 +60,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=19;1
 font-3 = Weather Icons:size=11;0
 
-modules-left = i3 spotify weather
+modules-left = i3 sep spotify sep weather
 modules-center = date
 modules-right = backlight-acpi pulseaudio xkeyboard filesystem memory cpu wlan battery powermenu
 
@@ -83,6 +83,12 @@ tray-offset-x = 220
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[module/sep]
+type = custom/text
+content-foreground = ${colors.background-alt}
+content-background = ${colors.background}
+content = "|"
 
 [module/xwindow]
 type = internal/xwindow

@@ -12,9 +12,9 @@ rosbif's GNU/Linux configuration
 - [Wallpaper](https://www.wallpaperup.com/196200/nature_mountain_eagle_fog_landscape_ultrahd_4k_wallpaper.html)
 - [rofi theme](https://github.com/h-valdes/dotfiles) by h-valdes
 
-![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot1.png)
-![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot2.png)
-![](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot3.png)
+![ss1](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot1.png)
+![ss2](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot2.png)
+![ss3](https://raw.githubusercontent.com/therosbif/dotfiles/main/Screenshots/Screenshot3.png)
 
 ## Custom Polybar Modules
 

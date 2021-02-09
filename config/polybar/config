@@ -46,7 +46,7 @@ foreground = ${colors.foreground}
 line-size = 0
 line-color = #f00
 
-border-size = 3
+border-size = 4
 border-color = #00000000
 
 padding-left = 1
@@ -62,13 +62,13 @@ font-3 = Weather Icons:size=11;0
 
 modules-left = i3 sep spotify sep weather
 modules-center = date
-modules-right = backlight-acpi pulseaudio xkeyboard filesystem memory cpu wlan battery powermenu
+modules-right = backlight-acpi pulseaudio sep xkeyboard sep mount filesystem memory cpu sep wlan sep battery sep powermenu
 
 tray-position = center
 tray-padding = 0
 tray-background = ${colors.background}
 
-tray-offset-x = 220
+tray-offset-x = 120
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -119,6 +119,15 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/mount]
+type = custom/script
+
+format = <label>
+exec = echo  
+
+click-left = ~/.local/bin/dmenu_mount
+click-right = ~/.local/bin/dmenu_umount
 
 [module/spotify]
 type = custom/script
@@ -195,7 +204,7 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label> <bar>
-label = BL
+label = 
 
 bar-width = 10
 bar-indicator = |
@@ -238,10 +247,10 @@ format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-disconnected =
+format-disconnected = <label-disconnected>
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
+label-disconnected = 
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = 
@@ -261,10 +270,10 @@ format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
+;format-disconnected =
+;format-disconnected-prefix = 
 ;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
+;label-disconnected = 
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
@@ -285,10 +294,10 @@ label = %time% %date%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted = "           muted           "
+label-muted = "       muted        "
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -406,6 +415,10 @@ menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
 menu-0-1 = power off
 menu-0-1-exec = menu-open-2
+menu-0-2 = hibernate
+menu-0-2-exec = menu-open-3
+menu-0-3 = lock
+menu-0-3-exec = sudo -u rosbif /home/rosbif/.local/bin/lock
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
@@ -416,6 +429,11 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+menu-3-0 = hibernate
+menu-3-0-exec = sudo systemctl hibernate
+menu-3-1 = cancel
+menu-3-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true

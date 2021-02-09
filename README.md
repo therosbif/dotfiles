@@ -23,5 +23,5 @@ rosbif's GNU/Linux configuration
 
 ## Notes
 
-- ext, dmenu_mount, and ext scripts by [Luke Smith](https://github.com/LukeSmithxyz/voidrice)
+- dmenu_mount, and ext scripts by [Luke Smith](https://github.com/LukeSmithxyz/voidrice)
 - [spotify-cli-linux](https://github.com/pwittchen/spotify-cli-linux)

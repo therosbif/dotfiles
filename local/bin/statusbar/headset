@@ -1,0 +1,4 @@
+#!/bin/sh
+
+bluetoothctl info $1 | grep -i "connected.*no" && bluetoothctl power on && bluetoothctl connect $1 || bluetoothctl power off
+

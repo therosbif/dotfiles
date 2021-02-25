@@ -62,7 +62,7 @@ font-3 = Weather Icons:size=11;0
 
 modules-left = i3 sep spotify sep weather
 modules-center = date
-modules-right = backlight-acpi pulseaudio sep xkeyboard sep mount filesystem memory cpu sep wlan sep battery sep powermenu
+modules-right = backlight-acpi pulseaudio sep xkeyboard sep mount filesystem memory cpu sep headset wlan sep battery sep powermenu
 
 tray-position = center
 tray-padding = 0
@@ -128,6 +128,14 @@ exec = echo 
 
 click-left = ~/.local/bin/dmenu_mount
 click-right = ~/.local/bin/dmenu_umount
+
+[module/headset]
+type = custom/script
+
+format = <label>
+exec = bluetoothctl info 38:18:4C:BE:AB:6D | grep -i "connected.*yes" &>/dev/null && echo  || echo 
+
+click-left = ~/.local/bin/statusbar/headset 38:18:4C:BE:AB:6D
 
 [module/spotify]
 type = custom/script
